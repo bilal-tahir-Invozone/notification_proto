@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package  Notificationapi;
+
+service Notification {
+    rpc GetNotification (GetNotificationRequest) returns (GetNotificationResponse);
+}
+
+
+
+message GetNotificationRequest{
+    string title = 1;
+    string type = 2;
+  	string sender = 3;
+  	string receiver = 4;
+    string onReact = 5;
+	string group = 6;
+    string postnumber = 7;
+
+}
+
+message GetNotificationResponse {
+    string onReact = 1;
+    string description = 2;
+    string receiver = 3;
+    string sender = 4;
+    bool status = 5;
+}
