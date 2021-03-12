@@ -28,6 +28,19 @@ defmodule Notificationapi.GetNotificationResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          notification: Notificationapi.Data.t() | nil
+        }
+
+  defstruct [:notification]
+
+  field :notification, 1, type: Notificationapi.Data
+end
+
+defmodule Notificationapi.Data do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
           onReact: String.t(),
           description: String.t(),
           receiver: String.t(),
