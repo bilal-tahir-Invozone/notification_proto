@@ -20,13 +20,10 @@ message GetNotificationRequest{
 }
 
 message GetNotificationResponse {
-    Data notification = 1;
-}
-
-message Data {
     string onReact = 1;
     string description = 2;
     string receiver = 3;
     string sender = 4;
     bool status = 5;
-} 
+}
+
