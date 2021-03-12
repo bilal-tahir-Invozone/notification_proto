@@ -18,7 +18,6 @@ defmodule NotificationProto.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:protobuf, "~> 0.7.1"},
       {:grpc, github: "elixir-grpc/grpc"},
       {:cowlib, "~> 2.9.0", override: true},
       {:google_protos, "~> 0.1"}
