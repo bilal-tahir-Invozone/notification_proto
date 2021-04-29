@@ -3,12 +3,45 @@ syntax = "proto3";
 package  Notificationapi;
 
 service Notification {
+    rpc SaveNotification (SaveNotificationRequest) returns (SaveNotificationResponse);
     rpc GetNotification (GetNotificationRequest) returns (GetNotificationResponse);
+    rpc SaveToken (GetTokenRequest) returns (GetTokenResponse);
+    rpc DelToken (DelTokenRequest) returns (DelTokenResponse);
 }
 
+message DelTokenRequest {
+    string userid = 1;
+}
 
+message DelTokenResponse{
+    bool status = 1;
+}
 
-message GetNotificationRequest{
+message GetTokenRequest {
+    string userid = 1;
+    string token = 2; 
+}
+
+message GetTokenResponse{
+    bool status = 1;
+}
+
+message GetNotificationRequest {
+    string userid = 1;
+}
+
+message GetNotificationResponse {
+    repeated Notifis notifis = 1;
+}
+
+message Notifis {
+    string onReact = 1;
+    string description = 2;
+    string receiver = 3;
+    string sender = 4;
+}
+
+message SaveNotificationRequest{
     string title = 1;
     string type = 2;
   	string sender = 3;
@@ -16,14 +49,18 @@ message GetNotificationRequest{
     string onReact = 5;
 	string group = 6;
     string postnumber = 7;
+    string description = 8;
 
 }
 
-message GetNotificationResponse {
-    string onReact = 1;
-    string description = 2;
-    string receiver = 3;
-    string sender = 4;
-    bool status = 5;
+message SaveNotificationResponse {
+    string title = 1;
+    string type = 2;
+  	string sender = 3;
+  	string receiver = 4;
+    string onReact = 5;
+	string group = 6;
+    string postnumber = 7;
+    string description = 8;
 }
 

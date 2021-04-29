@@ -1,5 +1,5 @@
 # NotificationProto
-
+protoc --elixir_out=plugins=grpc:./lib/ proto/*
 **TODO: Add description**
 
 ## Installation
