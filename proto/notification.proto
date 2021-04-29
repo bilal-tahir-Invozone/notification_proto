@@ -59,11 +59,13 @@ message SaveNotificationRequest{
     string title = 1;
     string type = 2;
   	string sender = 3;
-  	string receiver = 4;
-    string onReact = 5;
-	string group = 6;
-    string postnumber = 7;
-    string description = 8;
+    string sender_id = 4;
+  	string receiver = 5;
+    string receiver_id = 6;
+    string onReact = 7;
+	string group = 8;
+    string postnumber = 9;
+    string description = 10;
 
 }
 
@@ -71,10 +73,12 @@ message SaveNotificationResponse {
     string title = 1;
     string type = 2;
   	string sender = 3;
-  	string receiver = 4;
-    string onReact = 5;
-	string group = 6;
-    string postnumber = 7;
-    string description = 8;
+    string sender_id = 4;
+  	string receiver = 5;
+    string receiver_id = 6;
+    string onReact = 7;
+	string group = 8;
+    string postnumber = 9;
+    string description = 10;
 }
 

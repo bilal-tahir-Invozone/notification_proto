@@ -146,23 +146,38 @@ defmodule Notificationapi.SaveNotificationRequest do
           title: String.t(),
           type: String.t(),
           sender: String.t(),
+          sender_id: String.t(),
           receiver: String.t(),
+          receiver_id: String.t(),
           onReact: String.t(),
           group: String.t(),
           postnumber: String.t(),
           description: String.t()
         }
 
-  defstruct [:title, :type, :sender, :receiver, :onReact, :group, :postnumber, :description]
+  defstruct [
+    :title,
+    :type,
+    :sender,
+    :sender_id,
+    :receiver,
+    :receiver_id,
+    :onReact,
+    :group,
+    :postnumber,
+    :description
+  ]
 
   field :title, 1, type: :string
   field :type, 2, type: :string
   field :sender, 3, type: :string
-  field :receiver, 4, type: :string
-  field :onReact, 5, type: :string
-  field :group, 6, type: :string
-  field :postnumber, 7, type: :string
-  field :description, 8, type: :string
+  field :sender_id, 4, type: :string
+  field :receiver, 5, type: :string
+  field :receiver_id, 6, type: :string
+  field :onReact, 7, type: :string
+  field :group, 8, type: :string
+  field :postnumber, 9, type: :string
+  field :description, 10, type: :string
 end
 
 defmodule Notificationapi.SaveNotificationResponse do
@@ -173,23 +188,38 @@ defmodule Notificationapi.SaveNotificationResponse do
           title: String.t(),
           type: String.t(),
           sender: String.t(),
+          sender_id: String.t(),
           receiver: String.t(),
+          receiver_id: String.t(),
           onReact: String.t(),
           group: String.t(),
           postnumber: String.t(),
           description: String.t()
         }
 
-  defstruct [:title, :type, :sender, :receiver, :onReact, :group, :postnumber, :description]
+  defstruct [
+    :title,
+    :type,
+    :sender,
+    :sender_id,
+    :receiver,
+    :receiver_id,
+    :onReact,
+    :group,
+    :postnumber,
+    :description
+  ]
 
   field :title, 1, type: :string
   field :type, 2, type: :string
   field :sender, 3, type: :string
-  field :receiver, 4, type: :string
-  field :onReact, 5, type: :string
-  field :group, 6, type: :string
-  field :postnumber, 7, type: :string
-  field :description, 8, type: :string
+  field :sender_id, 4, type: :string
+  field :receiver, 5, type: :string
+  field :receiver_id, 6, type: :string
+  field :onReact, 7, type: :string
+  field :group, 8, type: :string
+  field :postnumber, 9, type: :string
+  field :description, 10, type: :string
 end
 
 defmodule Notificationapi.Notification.Service do
