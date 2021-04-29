@@ -1,3 +1,44 @@
+defmodule Notificationapi.GetTokenRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          userid: String.t()
+        }
+
+  defstruct [:userid]
+
+  field :userid, 1, type: :string
+end
+
+defmodule Notificationapi.GetTokenResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          usertoken: [Notificationapi.Usertoken.t()]
+        }
+
+  defstruct [:usertoken]
+
+  field :usertoken, 1, repeated: true, type: Notificationapi.Usertoken
+end
+
+defmodule Notificationapi.Usertoken do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          userid: String.t(),
+          token: String.t()
+        }
+
+  defstruct [:userid, :token]
+
+  field :userid, 1, type: :string
+  field :token, 2, type: :string
+end
+
 defmodule Notificationapi.DelTokenRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,7 +65,7 @@ defmodule Notificationapi.DelTokenResponse do
   field :status, 1, type: :bool
 end
 
-defmodule Notificationapi.GetTokenRequest do
+defmodule Notificationapi.SaveTokenRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -39,7 +80,7 @@ defmodule Notificationapi.GetTokenRequest do
   field :token, 2, type: :string
 end
 
-defmodule Notificationapi.GetTokenResponse do
+defmodule Notificationapi.SaveTokenResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -163,9 +204,11 @@ defmodule Notificationapi.Notification.Service do
       Notificationapi.GetNotificationRequest,
       Notificationapi.GetNotificationResponse
 
-  rpc :SaveToken, Notificationapi.GetTokenRequest, Notificationapi.GetTokenResponse
+  rpc :SaveToken, Notificationapi.SaveTokenRequest, Notificationapi.SaveTokenResponse
 
   rpc :DelToken, Notificationapi.DelTokenRequest, Notificationapi.DelTokenResponse
+
+  rpc :GetToken, Notificationapi.GetTokenRequest, Notificationapi.GetTokenResponse
 end
 
 defmodule Notificationapi.Notification.Stub do

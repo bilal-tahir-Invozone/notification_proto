@@ -5,8 +5,22 @@ package  Notificationapi;
 service Notification {
     rpc SaveNotification (SaveNotificationRequest) returns (SaveNotificationResponse);
     rpc GetNotification (GetNotificationRequest) returns (GetNotificationResponse);
-    rpc SaveToken (GetTokenRequest) returns (GetTokenResponse);
+    rpc SaveToken (SaveTokenRequest) returns (SaveTokenResponse);
     rpc DelToken (DelTokenRequest) returns (DelTokenResponse);
+    rpc GetToken (GetTokenRequest) returns (GetTokenResponse);
+}
+
+message GetTokenRequest {
+    string userid = 1;
+}
+
+message GetTokenResponse {
+    repeated Usertoken usertoken = 1;
+}
+
+message Usertoken {
+    string userid = 1;
+    string token = 2;
 }
 
 message DelTokenRequest {
@@ -17,12 +31,12 @@ message DelTokenResponse{
     bool status = 1;
 }
 
-message GetTokenRequest {
+message SaveTokenRequest {
     string userid = 1;
     string token = 2; 
 }
 
-message GetTokenResponse{
+message SaveTokenResponse{
     bool status = 1;
 }
 
