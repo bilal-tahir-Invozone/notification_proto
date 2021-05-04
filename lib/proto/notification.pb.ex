@@ -127,15 +127,19 @@ defmodule Notificationapi.Notifis do
           onReact: String.t(),
           description: String.t(),
           receiver: String.t(),
-          sender: String.t()
+          sender: String.t(),
+          others: String.t(),
+          sender_id: String.t()
         }
 
-  defstruct [:onReact, :description, :receiver, :sender]
+  defstruct [:onReact, :description, :receiver, :sender, :others, :sender_id]
 
   field :onReact, 1, type: :string
   field :description, 2, type: :string
   field :receiver, 3, type: :string
   field :sender, 4, type: :string
+  field :others, 5, type: :string
+  field :sender_id, 6, type: :string
 end
 
 defmodule Notificationapi.SaveNotificationRequest do
@@ -152,7 +156,8 @@ defmodule Notificationapi.SaveNotificationRequest do
           onReact: String.t(),
           group: String.t(),
           postnumber: String.t(),
-          description: String.t()
+          description: String.t(),
+          others: String.t()
         }
 
   defstruct [
@@ -165,7 +170,8 @@ defmodule Notificationapi.SaveNotificationRequest do
     :onReact,
     :group,
     :postnumber,
-    :description
+    :description,
+    :others
   ]
 
   field :title, 1, type: :string
@@ -178,6 +184,7 @@ defmodule Notificationapi.SaveNotificationRequest do
   field :group, 8, type: :string
   field :postnumber, 9, type: :string
   field :description, 10, type: :string
+  field :others, 11, type: :string
 end
 
 defmodule Notificationapi.SaveNotificationResponse do
@@ -194,7 +201,8 @@ defmodule Notificationapi.SaveNotificationResponse do
           onReact: String.t(),
           group: String.t(),
           postnumber: String.t(),
-          description: String.t()
+          description: String.t(),
+          others: String.t()
         }
 
   defstruct [
@@ -207,7 +215,8 @@ defmodule Notificationapi.SaveNotificationResponse do
     :onReact,
     :group,
     :postnumber,
-    :description
+    :description,
+    :others
   ]
 
   field :title, 1, type: :string
@@ -220,6 +229,7 @@ defmodule Notificationapi.SaveNotificationResponse do
   field :group, 8, type: :string
   field :postnumber, 9, type: :string
   field :description, 10, type: :string
+  field :others, 11, type: :string
 end
 
 defmodule Notificationapi.Notification.Service do
